@@ -58,8 +58,7 @@ function spawnBot() {
       username: process.env.MC_USER,
       password: process.env.MC_PASS,
       host: 'hypixel.net',
-      version: '1.16.4',
-      auth: 'microsoft',
+      version: '1.8.9',
       logErrors: 'true',
       hideErrors: 'false',
       checkTimeoutInterval: 30000,
@@ -118,9 +117,9 @@ function spawnBot() {
          ) {
             return;
          }
-         minebot.chat(`/gc ${message.author.username} > ${message.content}`);
+         minebot.chat(`/gc ${message.member.displayName} > ${message.content}`);
          toDiscordChat(
-            `<:discord:829596398822883368> **${message.author.username}: ${Util.escapeMarkdown(message.content)}**`
+            `<:discord:829596398822883368> **${message.member.displayName}: ${Util.escapeMarkdown(message.content)}**`
          );
          await message.delete();
       } catch (err) {
