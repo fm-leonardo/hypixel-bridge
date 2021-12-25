@@ -119,8 +119,9 @@ function spawnBot() {
          }
          minebot.chat(`/gc ${message.member.displayName} > ${message.content}`);
          toDiscordChat(
-            `<:discord:829596398822883368> **${message.member.displayName}: ${Util.escapeMarkdown(message.content)}**`
+            `<:discord:924396652251455538> **${message.member.displayName}: ${Util.escapeMarkdown(message.content)}**`
          );
+
          await message.delete();
       } catch (err) {
          console.log(err);

@@ -4,6 +4,6 @@ module.exports = {
    name: 'joinLeave',
    async execute(playername, joinLeave) {
       if (playername === minebot.username) return;
-      toDiscordChat(`<:hypixel:829640659542867969> **${playername} ${joinLeave}.**`);
+      toDiscordChat(`<:hypixel:924394726709411880> **${playername} ${joinLeave}.**`);
    },
 };
