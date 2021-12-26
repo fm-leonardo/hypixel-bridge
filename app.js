@@ -25,6 +25,8 @@ const rl = readline.createInterface({
    output: process.stdout,
 });
 const chalk = require('chalk');
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
 const { Client, Intents, Collection, Util, WebhookClient } = require('discord.js');
 const bot = new Client({
    allowedMentions: { parse: ['users', 'roles'], repliedUser: true },
@@ -58,7 +60,7 @@ function spawnBot() {
       username: process.env.MC_USER,
       password: process.env.MC_PASS,
       host: 'hypixel.net',
-      version: '1.8.9',
+      version: '1.12.2',
       logErrors: 'true',
       hideErrors: 'false',
       checkTimeoutInterval: 30000,
@@ -67,21 +69,32 @@ function spawnBot() {
 
    module.exports = { minebot, toDiscordChat, bot };
 
+   /*
    // ██████ Discord Bot: Command Init ██████████████████████████████████████████
-   bot.commands = new Collection();
+   commands = [];
    const commandFolders = fs.readdirSync('./commands');
    for (const folder of commandFolders) {
       const commandFiles = fs.readdirSync(`./commands/${folder}`).filter((file) => file.endsWith('.js'));
       for (const file of commandFiles) {
          const command = require(`./commands/${folder}/${file}`);
-         bot.commands.set(command.name, {
-            name: command.name,
-            category: folder,
-            description: command.description,
-            execute: command.execute,
-         });
+         commands.push(command.data.toJSON());
       }
    }
+   const rest = new REST({ version: '9' }).setToken(process.env.BOT_TOKEN);
+
+   (async () => {
+      try {
+         console.log(chalk.green('Registering commands...'));
+
+         await rest.put(
+            Routes.applicationGuildCommands(config.ids.bot, config.ids.server),
+            { body: commands }
+         )
+      } catch (err) {
+         console.log(chalk.red(err));
+      }
+   });
+   */
 
    // ██████ Minecraft Bot: Handler ██████████████████████████████████████████████
    rl.on('line', async (input) => {
