@@ -1,6 +1,6 @@
 module.exports = {
    bot: {
-      prefix: 'mmm', // Used to be used for commands, now used to not send a message to Minecraft in guildChannel
+      prefix: 'mmm ', // Used to be used for commands, now used to not send a message to Minecraft in guildChannel
       owner: 'leowonardo#2443', // Set this to your Discord username
    },
 
@@ -11,6 +11,7 @@ module.exports = {
       guildChannel: '923385798953414736', // Server to send and receive Minecraft messages
       trustedRole: '923383956458598452', // Role to access certain restricted commands (currently only "say" command at the moment)
       moderatorRole: '923383674043514910', // Role used for access to moderator commands (currently only "slowmode" command at the moment)
+      bot: '924084141845254184', // Discord bot id, used to register slash commands
    },
 
    messages: {
