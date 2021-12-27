@@ -69,32 +69,23 @@ function spawnBot() {
 
    module.exports = { minebot, toDiscordChat, bot };
 
-   /*
+
    // ██████ Discord Bot: Command Init ██████████████████████████████████████████
-   commands = [];
+   bot.commands = new Collection();
    const commandFolders = fs.readdirSync('./commands');
    for (const folder of commandFolders) {
       const commandFiles = fs.readdirSync(`./commands/${folder}`).filter((file) => file.endsWith('.js'));
       for (const file of commandFiles) {
          const command = require(`./commands/${folder}/${file}`);
-         commands.push(command.data.toJSON());
+         bot.commands.set(command.name, {
+            name: command.name,
+            category: folder,
+            description: command.description,
+            execute: command.execute,
+         });
       }
    }
-   const rest = new REST({ version: '9' }).setToken(process.env.BOT_TOKEN);
 
-   (async () => {
-      try {
-         console.log(chalk.green('Registering commands...'));
-
-         await rest.put(
-            Routes.applicationGuildCommands(config.ids.bot, config.ids.server),
-            { body: commands }
-         )
-      } catch (err) {
-         console.log(chalk.red(err));
-      }
-   });
-   */
 
    // ██████ Minecraft Bot: Handler ██████████████████████████████████████████████
    rl.on('line', async (input) => {
