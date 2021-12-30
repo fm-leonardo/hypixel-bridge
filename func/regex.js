@@ -1,7 +1,7 @@
 const regexStrings = {};
 
 // —— Guild chat pattern
-regexStrings.guildChat = /^Guild > (\[.*]\s*)?([\w]{2,17}).*?(\[.{1,15}])?: (.*)$/;
+regexStrings.guildChat = /^Guild > (\[[^\]]*]\s*)?([\w]{2,17}).*?(\[.{1,15}])?: (.*)$/;
 
 // —— On guild member join/leave Hypixel
 regexStrings.joinLeave = /^Guild > ([\w]{2,17}).*? (joined|left)\.$/;
