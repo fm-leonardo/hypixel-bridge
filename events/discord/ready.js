@@ -6,6 +6,7 @@ module.exports = {
    runOnce: true,
    async execute(bot) {
       console.log(chalk.greenBright('Success! Discord bot is now online.'));
+      console.log(chalk.greenBright(`Logged in as ${bot.user.tag}`));
       bot.user.setActivity('the console window', {
          type: 'WATCHING',
       });
