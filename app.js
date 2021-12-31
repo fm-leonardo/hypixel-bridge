@@ -121,9 +121,15 @@ function spawnBot() {
          ) {
             return;
          }
-         minebot.chat(`/gc ${message.member.displayName} > ${message.content}`);
+         let attachmentURL = null;
+         if (message.attachments.size > 0) {
+            let attachment = message.attachments.first();
+            console.log(`attachment: ${attachment}`);
+            attachmentURL = attachment.url;
+         }
+         minebot.chat(`/gc ${message.member.displayName} > ${message.content} ${attachmentURL || ''}`);
          toDiscordChat(
-            `<:discord:924396652251455538> **${message.member.displayName}: ${Util.escapeMarkdown(message.content)}**`
+            `<:discord:924396652251455538> **${message.member.displayName}: ${Util.escapeMarkdown(message.content)}** ${attachmentURL || ''}`
          );
 
          await message.delete();
