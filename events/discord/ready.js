@@ -17,7 +17,7 @@ module.exports = {
          });
       }, 60 * 1000);
       bot.guilds.cache.get(config.ids.server).channels.cache.get(config.ids.guildChannel).send({
-         content: `<:yes:829640052531134464> Bot has reconnected to Discord.`,
+         content: `<:yes:926849111641161830> Bot has reconnected to Discord.`,
       });
    },
 };

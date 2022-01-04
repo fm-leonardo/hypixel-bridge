@@ -13,7 +13,7 @@ module.exports = {
       console.error(error);
       webhook.send(`**Minebot: Error** \`\`\`${error}\`\`\``);
       console.log(chalk.redBright('Restarting in 10 seconds.'));
-      toDiscordChat(`<:nah:829640042334257202> The bot has encountered an unknown error and will restart shortly.`);
+      toDiscordChat(`<:no:926849137008332820> The bot has encountered an unknown error and will restart shortly.`);
       setTimeout(() => {
          process.exit(1);
       }, 10 * 1000);
